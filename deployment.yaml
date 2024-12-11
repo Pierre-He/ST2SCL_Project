@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: st2scl-project-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: st2scl-project
+  template:
+    metadata:
+      labels:
+        app: st2scl-project
+    spec:
+      containers:
+        - name: st2scl-project
+          image: phedocker/st2scl_project:latest
+          ports:
+            - containerPort: 8080
