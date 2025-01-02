@@ -14,6 +14,8 @@ spec:
     spec:
       containers:
         - name: st2scl-project
-          image: phedocker/st2scl_project:latest
+          image: 032024/app:latest
           ports:
             - containerPort: 8080
+
+
