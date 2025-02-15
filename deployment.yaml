@@ -2,6 +2,8 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: st2scl-project-deployment
+  labels:
+    app: st2scl-project
 spec:
   replicas: 1
   selector:

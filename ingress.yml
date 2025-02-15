@@ -1,18 +1,14 @@
-apiVersion: networking.k8s.io/v1
-kind: Ingress
+apiVersion: networking.istio.io/v1alpha3
+kind: Gateway
 metadata:
-  name: example-ingress
-  annotations:
-#    nginx.ingress.kubernetes.io/rewrite-target: /$1
+  name: st2scl-gateway
 spec:
-  rules:
-    - host: myservice.info
-      http:
-        paths:
-          - path: /
-            pathType: Prefix
-            backend:
-              service:
-                name: myservice
-                port:
-                  number: 8080
+  selector:
+    istio: ingressgateway
+  servers:
+    - port:
+        number: 80
+        name: http
+        protocol: HTTP
+      hosts:
+        - "*"
